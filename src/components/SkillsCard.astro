@@ -1,0 +1,11 @@
+---
+interface SkillsProps{
+    title: string;
+}
+
+const {title} = Astro.props;
+---
+<div class="border rounded-2xl px-6 py-4 w-[32%]">
+    <h3 class="font-light text-2xl">{title}</h3>
+    <slot/>
+</div>

@@ -1,10 +1,29 @@
-<div class="flex flex-col w-full items-center justify-center h-screen px-64 relative">
-    <h2 class="text-6xl font-bold w-fit m-0 p-0 relative">About</h2>
-    <p>Hello there! My name is Carissa Fabellina. At the moment I’m a 3rd year undergraduate computer science student in Bina Nusantara University (or  BINUS in short) who’s majoring in Intelligent Systems. I have keen interest in data-related fields & software engineering and I’m really eager to learn more and apply my skill in these fields. </p>
+---
+import skillsData from '../data/skills.json.ts'
+import CustomLink from './CustomLink.astro'
+import SkillsCard from './SkillsCard.astro'
+---
+<div class="flex flex-col w-full items-center justify-center h-screen px-80 relative">
+    <h2 class="self-start text-8xl font-bold w-fit m-0 p-0 relative">About</h2>
+    <p class="mt-10 mb-10 text-xl font-light">Hello there! My name is Carissa Fabellina. At the moment I’m a 3rd year undergraduate computer science student in Bina Nusantara University (or  BINUS in short) who’s majoring in Intelligent Systems. I have keen interest in data-related fields & software engineering and I’m really eager to learn more and apply my skill in these fields. </p>
 
-    <div>
-
+    <div class="flex flex-row w-full justify-between">
+        {skillsData.map(skill => {
+            return(
+                <SkillsCard title={skill.title}>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        {skill.techs.map(tech => {
+                            return (
+                                <span class="w-fit font-light text-xl bg-dark-blue text-white px-2 py-1 rounded-md">{tech}</span>
+                            )
+                        })}
+                    </div>
+                    
+                </SkillsCard>
+            )
+        })}
     </div>
+    <CustomLink link="/" text="Learn More About Me"/>
 </div>
 
 <style>

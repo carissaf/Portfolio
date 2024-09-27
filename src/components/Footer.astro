@@ -1,0 +1,47 @@
+---
+import GitHubIcon from "./icons/GitHubIcon.astro"
+import InstagramIcon from "./icons/InstagramIcon.astro"
+import LinkedInIcon from "./icons/LinkedInIcon.astro"
+
+const {className} = Astro.props
+
+const links = ['/home', '/about', '/projects']
+---
+
+<footer class={className + ' w-full bg-dark-blue text-yellow px-36 content-center'}>
+    <div class="flex flex-row">
+        <div class="mr-44">
+            <h1 class="text-4xl font-normal text-white opacity-50 mb-10">Say Hello</h1>
+            <a class="text-2xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
+        </div>
+
+        <div>
+            <h1 class="text-4xl font-normal text-white opacity-50 mb-10">Navigation</h1>
+            <div class="grid gap-5">
+                {links.map(link => {
+                    return (
+                        <a class="text-2xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
+                    )
+                })}
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-10 mt-36 border-t-yellow border-t flex flex-row items-center justify-between">
+        <p class="font-light">Designed and built by Carissa</p>
+
+        <div class="grid grid-cols-3 gap-4">
+            <a href="https://www.linkedin.com/in/carissafabellina/" target="_blank">
+                <LinkedInIcon/>
+            </a>
+
+            <a href="https://github.com/carissaf" target="_blank">
+                <GitHubIcon/>
+            </a>
+
+            <a href="" target="_blank">
+                <InstagramIcon/>
+            </a>
+        </div>
+    </div>
+</footer>

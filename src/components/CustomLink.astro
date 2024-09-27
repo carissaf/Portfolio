@@ -1,0 +1,29 @@
+---
+import ArrowRightIcon from "./icons/ArrowRightIcon.astro"
+
+const {link, text} = Astro.props
+---
+<div class="flex flex-row self-end content-center text-light-blue mt-4 relative">
+    <a class="text-lg flex flex-row items-center content-center" href={link}>
+        {text}
+        <ArrowRightIcon className="w-8 content-center"/>
+    </a>
+</div>
+
+<style>
+    a::after{
+        content: '';
+        background-color: #7FB7D0;
+        position: absolute;
+        /* left: -0.2vw; */
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        z-index: -1;
+        transition: all .3s ease-in-out;
+    }
+
+    a:hover::after{
+        width: 100%;
+    }
+</style>
