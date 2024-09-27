@@ -1,9 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Navbar from '../components/Navbar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutMeSection from '../components/AboutMeSection.astro';
 ---
+<Layout title='Home'>
+	<Navbar currPage="/home"/>
+	<HeroSection/>
+	<AboutMeSection/>
+</Layout>
 
-<Layout title="Welcome to Astro.">
+<!-- <Layout title="Welcome to Astro.">
 	<main>
 		<svg
 			class="astro-a"
@@ -120,4 +128,4 @@ import Card from '../components/Card.astro';
 		gap: 2rem;
 		padding: 0;
 	}
-</style>
+</style> -->
