@@ -6,12 +6,30 @@ import HeroSection from '../components/HeroSection.astro';
 import AboutMeSection from '../components/AboutMeSection.astro';
 import Footer from '../components/Footer.astro';
 ---
+
 <Layout title='Home'>
-	<Navbar currPage="/home"/>
-	<HeroSection/>
-	<AboutMeSection/>
-	<Footer className="h-screen"/>
+	<Navbar currPage="/home" client:load/>
+	<HeroSection client:load/>
+	<AboutMeSection client:load/>
+	<Footer className="h-screen section-scroll" client:load/>
 </Layout>
+
+<style>
+	body{
+		overflow: hidden;
+	}
+</style>
+
+<!--<script>-->
+<!--	const section = document.querySelector('section');-->
+<!--	console.log(section);-->
+<!--	section.scrollIntoView({-->
+<!--		behavior: 'smooth',-->
+<!--		block: 'start',-->
+<!--	})-->
+<!--</script>-->
+
+<script src="../utils/scroll-jacking.ts"></script>
 
 <!-- <Layout title="Welcome to Astro.">
 	<main>
