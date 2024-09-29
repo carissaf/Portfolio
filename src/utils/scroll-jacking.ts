@@ -1,6 +1,6 @@
 const sections: NodeListOf<Element> = document.querySelectorAll(".section-scroll");
-var currentSectionIndex: number = 0;
-var isThrottled: boolean = false;
+let currentSectionIndex: number = 0;
+let isThrottled: boolean = false;
 
 document.addEventListener("wheel", (event: WheelEvent): void =>{
     event.preventDefault();
