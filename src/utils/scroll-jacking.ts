@@ -2,20 +2,26 @@ const sections: NodeListOf<Element> = document.querySelectorAll(".section-scroll
 let currentSectionIndex: number = 0;
 let isThrottled: boolean = false;
 
-document.addEventListener("wheel", (event: WheelEvent): void =>{
-    event.preventDefault();
+const isMobile = () => {
+    return window.innerWidth <= 1668;
+};
 
-    if(isThrottled) return;
+if(!isMobile()){
+    document.addEventListener("wheel", (event: WheelEvent): void =>{
+        event.preventDefault();
 
-    const delta = Math.sign(event.deltaY); //sign returns -1 if number is negative and 1 if number is positive
-    if(delta > 0){ //scroll down
-        goToNextSection();
-    }else if(delta < 0){ //scroll up
-        goToPrevSection();
-    }
+        if(isThrottled) return;
 
-    throttleScroll()
-},{ passive: false })
+        const delta = Math.sign(event.deltaY); //sign returns -1 if number is negative and 1 if number is positive
+        if(delta > 0){ //scroll down
+            goToNextSection();
+        }else if(delta < 0){ //scroll up
+            goToPrevSection();
+        }
+
+        throttleScroll()
+    },{ passive: false })
+}
 
 const throttleScroll = ()=>{
     console.log("throtltltlelelel")

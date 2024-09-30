@@ -1,0 +1,21 @@
+---
+import skillsData from "../data/skills.json";
+import SkillsCard from "./SkillsCard.astro";
+---
+
+<div class="flex flex-row w-full justify-between">
+    {skillsData.map(skill => {
+        return(
+                <SkillsCard title={skill.title}>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        {skill.techs.map(tech => {
+                            return (
+                                    <span class="w-fit font-light text-xl bg-dark-blue text-white px-2 py-1 rounded-md">{tech}</span>
+                            )
+                        })}
+                    </div>
+
+                </SkillsCard>
+        )
+    })}
+</div>

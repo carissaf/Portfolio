@@ -1,0 +1,15 @@
+---
+const {title, url} = Astro.props
+---
+
+<div class="border rounded-2xl overflow-clip relative">
+    <img alt={title} src={url} class="w-full h-full object-cover object-center -z-1" />
+    <h3 class="absolute bottom-0">{title}</h3>
+</div>
+
+<style>
+    h3{
+
+    }
+</style>
+

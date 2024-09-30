@@ -1,32 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import HeroSection from '../components/HeroSection.astro';
-import AboutMeSection from '../components/AboutMeSection.astro';
+import HeroSection from '../components/home/HeroSection.astro';
+import AboutMeSection from '../components/home/AboutMeSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout title='Home'>
-	<Navbar currPage="/home" client:load/>
-	<HeroSection client:load/>
-	<AboutMeSection client:load/>
-	<Footer className="h-screen section-scroll" client:load/>
+	<Navbar currPage="/home"/>
+	<HeroSection />
+	<AboutMeSection />
+	<Footer className="h-screen section-scroll" />
 </Layout>
 
 <style>
-	body{
-		overflow: hidden;
+	@media screen and (min-width: 1668px) {
+		body{
+			overflow: hidden;
+		}
 	}
 </style>
-
-<!--<script>-->
-<!--	const section = document.querySelector('section');-->
-<!--	console.log(section);-->
-<!--	section.scrollIntoView({-->
-<!--		behavior: 'smooth',-->
-<!--		block: 'start',-->
-<!--	})-->
-<!--</script>-->
 
 <script src="../utils/scroll-jacking.ts"></script>
 
