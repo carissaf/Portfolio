@@ -9,7 +9,7 @@ const skillsData = [
     },
     {
         title: "Data Science",
-        techs: ["Machine Learning", "Python", "SQL"]
+        techs: ["Machine Learning", "Python", "SQL Server", "MySQL", "R"]
     }
 ]
 

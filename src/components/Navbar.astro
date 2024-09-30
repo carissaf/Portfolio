@@ -4,10 +4,10 @@ const { currPage } = Astro.props;
 const links = ['/home', '/about', '/projects']
 ---
 
-<nav class="flex flex-row justify-between content-center align-center px-32 py-10 fixed w-full font-light z-10">
-    <a href="/" class="text-4xl">cf</a>
+<nav class="flex flex-row justify-between content-center align-center px-32 py-10 fixed w-full font-light z-10 opacity-0 transform -translate-y-5 transition-all duration-700 ease-in-out">
+    <a href="/" class="text-3xl">cf</a>
 
-    <div class="self-center flex flex-row text-2xl">
+    <div class="self-center flex flex-row text-xl">
         {
             links.map(link => (
             <a class={link === currPage ? "relative ml-10 curr-page" : "relative content-center ml-10 link"} 
@@ -54,3 +54,10 @@ const links = ['/home', '/about', '/projects']
     }
 </style>
 
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('nav');
+        navbar.classList.remove('opacity-0', '-translate-y-5');
+        navbar.classList.add('opacity-1', 'translate-y-0');
+    });
+</script>

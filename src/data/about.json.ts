@@ -20,19 +20,19 @@ const aboutData = {
     certificates: [
         {
             title: "Best Performing Part-Time Assistant",
-            img_path: "src/assets/certificate_bestperforming.jpg",
+            img_path: "src/assets/certificates/certificate_bestperforming.jpg",
         },
         {
             title: "Excellence Achievement Scholarship Mentor Odd Semester 2023/2024",
-            img_path: "src/assets/certificate_scholarshipmentor.jpg",
+            img_path: "src/assets/certificates/certificate_scholarshipmentor.jpg",
         },
         {
             title: "1st Place Techfest UI/UX Competition",
-            img_path: "src/assets/certificate_techfest.png",
+            img_path: "src/assets/certificates/certificate_techfest.png",
         },
         {
             title: "Best Participant SISTECH",
-            img_path: "src/assets/certificate_sistech.jpg",
+            img_path: "src/assets/certificates/certificate_sistech.jpg",
         }
     ]
 }

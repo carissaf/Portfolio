@@ -1,12 +1,14 @@
 const sections: NodeListOf<Element> = document.querySelectorAll(".section-scroll");
 let currentSectionIndex: number = 0;
 let isThrottled: boolean = false;
+const navbar = document.querySelector("nav");
 
 const isMobile = () => {
     return window.innerWidth <= 1668;
 };
 
 if(!isMobile()){
+
     document.addEventListener("wheel", (event: WheelEvent): void =>{
         event.preventDefault();
 
@@ -47,6 +49,10 @@ const goToPrevSection = () => {
 
 const scrollToSection = (currentSectionIndex: number) => {
     console.log(currentSectionIndex);
+    if(currentSectionIndex == sections.length - 1){
+        navbar?.classList.add("opacity-0");
+    }else navbar?.classList.remove("opacity-0");
+
     sections[currentSectionIndex].scrollIntoView({
         behavior: "smooth",
         block: "start",

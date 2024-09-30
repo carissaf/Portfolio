@@ -11,16 +11,16 @@ const links = ['/home', '/about', '/projects']
 <footer class={className + ' w-full bg-dark-blue text-yellow px-36 content-center py-32'}>
     <div class="flex flex-row">
         <div class="mr-44">
-            <h1 class="text-4xl font-normal text-white opacity-50 mb-10">Say Hello</h1>
-            <a class="text-2xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
+            <h1 class="text-3xl font-normal text-white opacity-50 mb-10">Say Hello</h1>
+            <a class="text-xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
         </div>
 
         <div>
-            <h1 class="text-4xl font-normal text-white opacity-50 mb-10">Navigation</h1>
+            <h1 class="text-3xl font-normal text-white opacity-50 mb-10">Navigation</h1>
             <div class="grid gap-5">
                 {links.map(link => {
                     return (
-                        <a class="text-2xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
+                        <a class="text-xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
                     )
                 })}
             </div>
