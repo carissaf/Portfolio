@@ -1,7 +1,9 @@
-const skillsData = [
+import type {ISkill} from "../components/models/skills";
+
+const skillsData: ISkill[] = [
     {
         title: "Web Development",
-        techs: ["React", "Laravel", "Bootstrap", "Tailwind CSS"]
+        techs: ["React", "TypeScript","Laravel", "Bootstrap", "Tailwind CSS"]
     },
     {
         title: "UI/UX Design",

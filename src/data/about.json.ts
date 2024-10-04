@@ -1,4 +1,6 @@
-const aboutData = {
+import type {IAbout} from "../components/models/about";
+
+const aboutData: IAbout = {
     desc: "Hello there! My name is Carissa Fabellina. At the moment I’m a 3rd year undergraduate computer science student in Bina Nusantara University (or  BINUS in short) who’s majoring in Intelligent Systems. I have keen interest in data-related fields & software engineering and I’m really eager to learn more and apply my skill in these fields. During my academic journey, I have received various knowledge through my curriculum as well as applying this knowledge by becoming a part-time software laboratory assistant at BINUS University.",
     experience: [
         {
@@ -20,19 +22,19 @@ const aboutData = {
     certificates: [
         {
             title: "Best Performing Part-Time Assistant",
-            img_path: "src/assets/certificates/certificate_bestperforming.jpg",
+            imgUrl: "src/assets/certificates/certificate_bestperforming.jpg",
         },
         {
-            title: "Excellence Achievement Scholarship Mentor Odd Semester 2023/2024",
-            img_path: "src/assets/certificates/certificate_scholarshipmentor.jpg",
+            title: "Excellent Achievement Scholarship Mentor Odd Semester 2023/2024",
+            imgUrl: "src/assets/certificates/certificate_scholarshipmentor.jpg",
         },
         {
             title: "1st Place Techfest UI/UX Competition",
-            img_path: "src/assets/certificates/certificate_techfest.png",
+            imgUrl: "src/assets/certificates/certificate_techfest.png",
         },
         {
             title: "Best Participant SISTECH",
-            img_path: "src/assets/certificates/certificate_sistech.jpg",
+            imgUrl: "src/assets/certificates/certificate_sistech.jpg",
         }
     ]
 }
