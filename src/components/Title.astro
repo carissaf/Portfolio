@@ -1,10 +1,10 @@
 ---
-const {title, classStyle} = Astro.props
+const {title, className} = Astro.props
 
-const className = "self-start font-normal w-fit m-0 p-0 relative " + classStyle
+const classStyle = "self-start font-normal w-fit m-0 p-0 relative " + className
 ---
 
-<h2 class={className} >{title}</h2>
+<h2 class={classStyle} >{title}</h2>
 <style>
     h2::before{
         position: absolute;

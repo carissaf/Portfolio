@@ -1,0 +1,20 @@
+---
+import projectsData from "../../data/projects.json";
+import Layout from "../../layouts/Layout.astro";
+import {IProject} from "../../components/models/project";
+
+const {projectName} = Astro.props
+
+const project: IProject = projectsData.find((project) => project.title.toLowerCase().replaceAll(' ', '') === projectName);
+
+export function getStaticPaths() {
+    return projectsData.map((project) => ({
+        params: {projectName: project.title.toLowerCase().replaceAll(' ', '')}
+    }));
+}
+---
+
+<Layout title={project.title}>
+    <p>{project.title} {project.techs}</p>
+</Layout>
+

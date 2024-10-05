@@ -6,11 +6,15 @@ const {link, text} = Astro.props
 <div class="flex flex-row self-end content-center text-light-blue mt-4 relative">
     <a class="text-base flex flex-row items-center content-center" href={link}>
         {text}
-        <ArrowRightIcon className="w-7 content-center"/>
+        <div class="arrow"><ArrowRightIcon className="w-7 content-center"/></div>
     </a>
 </div>
 
 <style>
+    *{
+        transition: all .3s ease-in-out;
+    }
+
     a::after{
         content: '';
         background-color: #7FB7D0;
@@ -25,5 +29,9 @@ const {link, text} = Astro.props
 
     a:hover::after{
         width: 100%;
+    }
+
+    a:hover .arrow{
+        transform: rotate(-45deg);
     }
 </style>

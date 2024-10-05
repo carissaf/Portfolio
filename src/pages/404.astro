@@ -1,0 +1,14 @@
+---
+
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import RabbitConfused from "../components/icons/RabbitConfused.astro";
+---
+
+<Layout title="404 Not Found">
+    <section class="w-full justify-center flex h-screen flex-col items-center content-center">
+        <RabbitConfused className="w-1/5" />
+        <Title title="404 Not Found" className="self-center text-4xl mt-10 mb-5"/>
+        <p>Oopsies! It looks like this page does not exist.</p>
+    </section>
+</Layout>

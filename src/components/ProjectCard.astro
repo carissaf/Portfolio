@@ -1,21 +1,34 @@
 ---
-const {title, imgUrl} = Astro.props
+interface IProjectCard{
+    title: string;
+    imgUrl: string;
+}
+import ArrowRightIcon from "./icons/ArrowRightIcon.astro";
+const {title, imgUrl} = Astro.props as IProjectCard;
+
 ---
 
-<div>
-    <div class="container rounded-xl">
+<a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container">
+    <div class="arrow absolute w-[5%] rounded-full bg-dark-blue top-7 left-7">
+        <ArrowRightIcon className="text-yellow"/>
+    </div>
+
+    <div class="img-container rounded-xl mb-2">
         <img class="flex" src={imgUrl} alt="">
     </div>
 
-    <h3>{title}</h3>
-</div>
+    <div>
+        <h3 class="text-xl font-normal">{title}</h3>
+    </div>
+
+</a>
 
 <style>
     *{
-        transition: all ease-in-out .3s;
+        transition: all ease-in-out .35s;
     }
 
-    .container {
+    .img-container {
         background: rgb(241,241,241);
         background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(218,218,218,1) 100%);
         //background: rgb(241,241,241);
@@ -28,8 +41,25 @@ const {title, imgUrl} = Astro.props
         overflow: hidden;
     }
 
+    img{
+        filter: grayscale(1);
+    }
+
     .container:hover img{
         transform: scale(1.1);
         //transition: all ease-in-out .3s;
+    }
+
+    .container:hover img{
+        filter: grayscale(0);
+    }
+
+    .arrow{
+        opacity: 0
+    }
+
+    .container:hover .arrow{
+        opacity: 1;
+        transform: rotate(-45deg) scale(1.2);
     }
 </style>
