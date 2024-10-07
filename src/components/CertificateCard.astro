@@ -1,9 +1,12 @@
 ---
+import {Image} from 'astro:assets';
+import processImage from "../utils/img-processor";
 const {title, url} = Astro.props
 ---
 
 <div class="border rounded-2xl overflow-clip relative">
-    <img alt={title} src={url} class="w-full h-full object-cover object-center -z-1" />
+    <!--<img alt={title} src={url} class="w-full h-full object-cover object-center -z-1" />-->
+    <Image class="w-full h-full object-cover object-center" src={processImage(url)} alt={title} />
     <h3 class="absolute -bottom-8 left-5 text-base font-normal opacity-0 z-10 pr-10">{title}</h3>
 </div>
 
