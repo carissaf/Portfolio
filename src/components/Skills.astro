@@ -4,9 +4,9 @@ import SkillsCard from "./SkillsCard.astro";
 ---
 
 <div class="flex flex-row w-full justify-between">
-    {skillsData.map(skill => {
+    {skillsData.map((skill, index) => {
         return(
-                <SkillsCard title={skill.title}>
+                <SkillsCard title={skill.title} index={index+1}>
                     <div class="flex flex-wrap gap-2 mt-4">
                         {skill.techs.map(tech => {
                             return (

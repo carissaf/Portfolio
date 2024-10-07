@@ -1,0 +1,32 @@
+---
+
+---
+<div class="progress-bar bg-light-blue rounded-full"></div>
+
+<style>
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 0;
+        z-index: 9999;
+    }
+</style>
+
+<script>
+    import gsap from "gsap";
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollTop / docHeight) * 100;
+
+        gsap.to(".progress-bar", {
+            width: `${scrollPercentage}%`,
+            ease: "none",
+            duration: 0.1
+        });
+    });
+
+</script>

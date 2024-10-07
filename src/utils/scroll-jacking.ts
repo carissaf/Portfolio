@@ -50,8 +50,8 @@ const goToPrevSection = () => {
 const scrollToSection = (currentSectionIndex: number) => {
     console.log(currentSectionIndex);
     if(currentSectionIndex == sections.length - 1){
-        navbar?.classList.add("opacity-0");
-    }else navbar?.classList.remove("opacity-0");
+        navbar?.classList.add("opacity-0", "invisible");
+    }else navbar?.classList.remove("opacity-0", "invisible");
 
     sections[currentSectionIndex].scrollIntoView({
         behavior: "smooth",

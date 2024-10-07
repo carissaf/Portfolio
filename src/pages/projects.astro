@@ -3,10 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import Project from "../components/projects/Project.astro";
+import ProgressBar from "../components/ProgressBar.astro";
 ---
 
 <Layout title="Projects">
+    <ProgressBar/>
     <Navbar currPage="/projects" />
     <Project/>
     <Footer />
 </Layout>
+
