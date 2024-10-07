@@ -4,7 +4,7 @@ const {text, className} = Astro.props;
 const filePath = "/CV_CarissaFabellina.pdf"
 ---
 <a href={filePath} target="_blank" class={className}>
-    <button class="flex place-items-center px-4 py-2 w-fit relative">
+    <button class="flex place-items-center px-4 py-2 w-fit relative after:w-[105%] after:aspect-square">
         <DownloadIcon/>
         <span class="self-center ml-2 text-xl font-light">{text}</span>
     </button>
@@ -41,8 +41,6 @@ const filePath = "/CV_CarissaFabellina.pdf"
     button::after{
         content: "";
         position: absolute;
-        width: 11vw;
-        height: 11vw;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.001);

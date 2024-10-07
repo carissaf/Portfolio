@@ -1,26 +1,30 @@
 ---
+import { Image } from 'astro:assets';
+
 interface IProjectCard{
     title: string;
     imgUrl: string;
+    category: string;
 }
 import ArrowRightIcon from "./icons/ArrowRightIcon.astro";
-const {title, imgUrl} = Astro.props as IProjectCard;
+import processImage from "../utils/img-processor";
+const {title, imgUrl, category} = Astro.props as IProjectCard;
 
 ---
 
-<a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container">
+<a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container overflow-hidden">
     <div class="arrow absolute w-[5%] rounded-full bg-dark-blue top-7 left-7">
         <ArrowRightIcon className="text-yellow"/>
     </div>
 
-    <div class="img-container rounded-xl mb-2">
-        <img class="flex" src={imgUrl} alt="">
+    <div class="img-container rounded-xl">
+        <Image class="img" alt={title} src={processImage(imgUrl)} />
+        <!--bg-[rgba(28,50,91,0.5)]-->
+        <div class="detail absolute bg-dark-blue w-11/12 left-1/2 -translate-x-1/2 py-3 px-7 rounded-lg flex flex-row justify-between">
+            <h3 class="text-yellow font-light">{title}</h3>
+            <h3 class="text-yellow font-light">{category}</h3>
+        </div>
     </div>
-
-    <div>
-        <h3 class="text-xl font-normal">{title}</h3>
-    </div>
-
 </a>
 
 <style>
@@ -41,16 +45,26 @@ const {title, imgUrl} = Astro.props as IProjectCard;
         overflow: hidden;
     }
 
-    img{
+    .img{
         filter: grayscale(1);
     }
 
-    .container:hover img{
+    .container:hover .img{
         transform: scale(1.1);
         //transition: all ease-in-out .3s;
     }
 
-    .container:hover img{
+    .detail{
+        opacity: 0;
+        bottom: -15%;
+    }
+
+    .container:hover .detail{
+        opacity: 1;
+        bottom: 1.75rem;
+    }
+
+    .container:hover .img{
         filter: grayscale(0);
     }
 

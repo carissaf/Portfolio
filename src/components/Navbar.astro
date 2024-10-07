@@ -1,4 +1,5 @@
 ---
+import RabbitIcon from "./icons/RabbitIcon.astro";
 const { currPage } = Astro.props;
 
 const links = ['/home', '/about', '/projects']
@@ -6,7 +7,8 @@ const links = ['/home', '/about', '/projects']
 
 <nav class="flex flex-row justify-between content-center align-center px-32 py-10 fixed w-full font-light z-10 opacity-0 transform -translate-y-5 transition-all duration-700 ease-in-out">
     <a href="/" class="text-3xl content-center">
-        <img class="w-9" src="/src/assets/rabbit.svg" alt="Logo">
+        <!--<img class="w-9" src="/src/assets/rabbit.svg" alt="Logo">-->
+        <RabbitIcon className="w-9"/>
     </a>
 
     <div class="self-center flex flex-row text-xl">
@@ -40,12 +42,12 @@ const links = ['/home', '/about', '/projects']
         position: absolute;
         left: -0.2vw;
         bottom: 0;
-        opacity: 0;
-        width: 100%;
-        height: 10%;
+        opacity: 30%;
+        width: 0;
+        height: 50%;
         z-index: -1;
-        transition: all .3s ease-in-out;
-        /* transition: 0.35s cubic-bezier(0.25, 0.1, 0, 1.5); */
+        transition: all .35s ease-in-out;
+        //transition: 0.35s cubic-bezier(0.25, 0.1, 0, 1.5);
     }
 
     .link:hover::before {

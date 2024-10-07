@@ -1,0 +1,17 @@
+---
+import projectsData from "../../data/projects.json";
+export function getStaticPaths(){
+    let listPaths = []
+    projectsData.map(project => {
+        listPaths.push({params: {project: project.title.toLowerCase().replaceAll(' ', '')}});
+    })
+
+	return listPaths;
+}
+
+const {project} = Astro.params
+---
+
+<div>
+    {project}
+</div>
