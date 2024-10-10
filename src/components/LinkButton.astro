@@ -1,0 +1,60 @@
+---
+import ArrowRightIcon from "./icons/ArrowRightIcon.astro";
+const {text, link}= Astro.props
+---
+
+<a class="button-link flex py-2 px-3 border rounded-full w-fit h-fit" target="_blank" href={link}>
+    <p class="w-fit">{text}</p>
+    <div class="-rotate-45 arrow rounded-full"><ArrowRightIcon className="w-6"/></div>
+</a>
+
+
+<script>
+    import gsap from 'gsap';
+
+    const links = document.querySelectorAll('.button-link');
+    const arrows = document.querySelectorAll('.arrow');
+    const widths = Array.from(links, link => (link as HTMLElement).getBoundingClientRect().width);
+
+    links.forEach((link, index) => {
+        console.log(widths[index]);
+        const originalPaddingRight = parseFloat(window.getComputedStyle(link).paddingRight);
+        const arrow = arrows[index];
+        console.log(originalPaddingRight)
+        link.addEventListener('mouseenter', () => {
+            console.log(widths[index]);
+            gsap.to(link, {
+                duration: 0.3,
+                ease: "power1.out",
+                paddingRight: (originalPaddingRight + 7) + 'px'
+            })
+
+            gsap.to(arrow,{
+                duration: 0.3,
+                rotation: 0,
+                backgroundColor: "#7FB7D0",
+                scale: 1.1,
+                color: "#fff",
+                x: 7
+            })
+        })
+
+        link.addEventListener("mouseleave", () => {
+            gsap.to(link, {
+                duration: 0.3,
+                ease: "power1.out",
+                paddingRight: originalPaddingRight
+            });
+
+            gsap.to(arrow,{
+                duration: 0.3,
+                rotation: -45,
+                color: "#000",
+                backgroundColor: "transparent",
+                scale: 1,
+                x: 0
+            })
+        });
+    })
+
+</script>

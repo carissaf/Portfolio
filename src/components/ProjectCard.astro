@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
 interface IProjectCard{
     title: string;
     imgUrl: string;
@@ -8,17 +6,18 @@ interface IProjectCard{
 }
 import ArrowRightIcon from "./icons/ArrowRightIcon.astro";
 import processImage from "../utils/img-processor";
+import {Image} from "astro:assets"
 const {title, imgUrl, category} = Astro.props as IProjectCard;
 
 ---
 
 <a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container overflow-hidden">
-    <div class="arrow absolute w-[5%] rounded-full bg-dark-blue top-7 left-7">
+    <div class="arrow absolute w-[5%] z-[1] rounded-full bg-dark-blue top-7 left-7">
         <ArrowRightIcon className="text-yellow"/>
     </div>
 
-    <div class="img-container rounded-xl">
-        <Image class="img" alt={title} src={processImage(imgUrl)} />
+    <div class="img-container rounded-xl h-full">
+        <Image class="img object-cover h-full" alt={title} src={processImage(imgUrl)} />
         <!--bg-[rgba(28,50,91,0.5)]-->
         <div class="detail absolute bg-dark-blue w-11/12 left-1/2 -translate-x-1/2 py-3 px-7 rounded-lg flex flex-row justify-between">
             <h3 class="text-yellow font-light">{title}</h3>
@@ -50,7 +49,7 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
     }
 
     .container:hover .img{
-        transform: scale(1.1);
+        transform: scale(1.05);
         //transition: all ease-in-out .3s;
     }
 

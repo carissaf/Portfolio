@@ -1,5 +1,14 @@
 ---
 import projectsData from "../../data/projects.json";
+import {IProject} from "../../components/models/project";
+import Layout from "../../layouts/Layout.astro";
+import processImage from "../../utils/img-processor";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import Box from "../../components/projects/Box.astro";
+import LinkButton from "../../components/LinkButton.astro";
+import {Image} from "astro:assets"
+
 export function getStaticPaths(){
     let listPaths = []
     projectsData.map(project => {
@@ -10,8 +19,61 @@ export function getStaticPaths(){
 }
 
 const {project} = Astro.params
+
+const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().replaceAll(' ', '') === project)
+
 ---
 
-<div>
-    {project}
-</div>
+<Layout title={projectData.title}>
+    <Navbar/>
+    <section class="justify-center px-32 flex flex-col pt-48">
+        <div class="flex flex-row gap-5 h-fit mb-10">
+            <div class="flex flex-col justify-between">
+                <div>
+                    <h1 class="text-6xl mb-5">{projectData.title}</h1>
+                    <h2 class="font-light text-lg mb-5">{projectData.summary}</h2>
+                </div>
+
+                <div class="flex flex-row gap-5">
+                    {projectData.linkGithub ? <LinkButton link={projectData.linkGithub} text="Github"/> : null}
+                    {projectData.linkKaggle ? <LinkButton link={projectData.linkKaggle} text="Kaggle"/> : null}
+                    {projectData.linkColab ? <LinkButton link={projectData.linkColab} text="Colab"/> : null}
+                    {projectData.linkPPT ? <LinkButton link={projectData.linkPPT} text="Study Case"/> : null}
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-5">
+                <Box title="Category">
+                    <p class="text-dark-blue text-lg">{projectData.category}</p>
+                </Box>
+
+                <Box title="Year">
+                    <p class="text-dark-blue text-lg">{projectData.year}</p>
+                </Box>
+
+                <Box title="Tags">
+                    <div class="flex flex-wrap gap-2">
+                        {projectData.techs.map((tech) => {
+                            return (<p class="bg-dark-blue font-light text-white py-1 px-2 rounded-lg">{tech}</p>)
+                        })}
+                    </div>
+
+                </Box>
+
+                <!--<Box title="Links">-->
+                <!--    <div class="flex flex-wrap gap-2">-->
+                <!--        {projectData.linkGithub ? <CustomLink link={projectData.linkGithub} text="Github"/> : null}-->
+                <!--        {projectData.linkKaggle ? <CustomLink link={projectData.linkKaggle} text="Kaggle"/> : null}-->
+                <!--        {projectData.linkColab ? <CustomLink link={projectData.linkColab} text="Google Colaboratory"/> : null}-->
+                <!--        {projectData.linkPPT ? <CustomLink link={projectData.linkPPT} text="Study Case"/> : null}-->
+                <!--    </div>-->
+                <!--</Box>-->
+            </div>
+        </div>
+
+        <!--<Title title={projectData.title} className="text-6xl mb-20"/>-->
+        <Image src={processImage(projectData.imgUrls[0])} alt={projectData.title} class="rounded-xl h-2/5 object-cover"/>
+    </section>
+
+    <Footer/>
+</Layout>

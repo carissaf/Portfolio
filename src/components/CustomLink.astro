@@ -1,12 +1,12 @@
 ---
 import ArrowRightIcon from "./icons/ArrowRightIcon.astro"
 
-const {link, text} = Astro.props
+const {link, text, className} = Astro.props
 ---
-<div class="flex flex-row self-end content-center text-light-blue mt-4 relative">
+<div class={className + " flex flex-row self-end content-center text-light-blue relative w-fit"}>
     <a class="text-base flex flex-row items-center content-center" href={link}>
         {text}
-        <div class="arrow"><ArrowRightIcon className="w-7 content-center"/></div>
+        <div class="arrow"><ArrowRightIcon className="w-6 content-center"/></div>
     </a>
 </div>
 
