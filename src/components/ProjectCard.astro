@@ -12,7 +12,7 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
 ---
 
 <a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container overflow-hidden">
-    <div class="arrow absolute w-[5%] z-[1] rounded-full bg-dark-blue top-7 left-7">
+    <div class="arrow absolute w-12 z-[1] rounded-full bg-dark-blue top-7 left-7">
         <ArrowRightIcon className="text-yellow"/>
     </div>
 
@@ -68,11 +68,12 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
     }
 
     .arrow{
-        opacity: 0
+        opacity: 0;
+        transform: scale(0.8);
     }
 
     .container:hover .arrow{
         opacity: 1;
-        transform: rotate(-45deg) scale(1.2);
+        transform: rotate(-45deg) scale(1);
     }
 </style>

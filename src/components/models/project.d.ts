@@ -1,7 +1,7 @@
 interface IProjectDesc{
-    challenge: string;
-    goal: string;
-    result: string;
+    problem: string;
+    solution: string;
+    features?: string[];
 }
 
 export interface IProject {
@@ -14,6 +14,7 @@ export interface IProject {
     linkKaggle?: string;
     linkColab?: string;
     linkPPT?: string;
+    linkFigma?: string;
     summary: string;
     description: IProjectDesc;
 }

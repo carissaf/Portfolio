@@ -8,6 +8,7 @@ import Footer from "../../components/Footer.astro";
 import Box from "../../components/projects/Box.astro";
 import LinkButton from "../../components/LinkButton.astro";
 import {Image} from "astro:assets"
+import ProgressBar from "../../components/ProgressBar.astro";
 
 export function getStaticPaths(){
     let listPaths = []
@@ -25,6 +26,7 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
 ---
 
 <Layout title={projectData.title}>
+    <ProgressBar/>
     <Navbar/>
     <section class="justify-center px-32 flex flex-col pt-48">
         <div class="flex flex-row gap-5 h-fit mb-10">
@@ -38,7 +40,8 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
                     {projectData.linkGithub ? <LinkButton link={projectData.linkGithub} text="Github"/> : null}
                     {projectData.linkKaggle ? <LinkButton link={projectData.linkKaggle} text="Kaggle"/> : null}
                     {projectData.linkColab ? <LinkButton link={projectData.linkColab} text="Colab"/> : null}
-                    {projectData.linkPPT ? <LinkButton link={projectData.linkPPT} text="Study Case"/> : null}
+                    {projectData.linkFigma ? <LinkButton link={projectData.linkFigma} text="Figma"/> : null}
+                    {projectData.linkPPT ? <LinkButton link={projectData.linkPPT} text={"More About " + projectData.title}/> : null}
                 </div>
             </div>
 
@@ -70,9 +73,40 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
                 <!--</Box>-->
             </div>
         </div>
-
         <!--<Title title={projectData.title} className="text-6xl mb-20"/>-->
-        <Image src={processImage(projectData.imgUrls[0])} alt={projectData.title} class="rounded-xl h-2/5 object-cover"/>
+        <Image src={processImage(projectData.imgUrls[0])} alt={projectData.title} class="rounded-xl object-cover mb-10 w-full h-[50%]"/>
+
+        <div class="flex flex-row gap-5 justify-between">
+            <div class="w-[35%]">
+                <h2 class="text-3xl sticky top-32">Description</h2>
+            </div>
+
+
+            <div class="flex flex-col gap-5 w-[65%]">
+                <Box title="Problem" useTitle={true}>
+                    <p class="font-light mt-3">{projectData.description.problem}</p>
+                </Box>
+
+                <Box title="Solution" useTitle={true}>
+                    <p class="font-light mt-3">{projectData.description.solution}</p>
+                </Box>
+
+                {projectData.description.features? (
+                        <Box title="Features" useTitle={true}>
+                            <ul class="list-disc list-inside mt-3">
+                                {projectData.description.features.map((feature) => {
+                                    return (<li class="font-light">{feature}</li>)
+                                })}
+                            </ul>
+                        </Box>) : null
+                }
+            </div>
+        </div>
+
+        <!--<div>-->
+        <!--    &lt;!&ndash;<Title title="Gallery"/>&ndash;&gt;-->
+        <!--    <h2>Gallery</h2>-->
+        <!--</div>-->
     </section>
 
     <Footer/>
