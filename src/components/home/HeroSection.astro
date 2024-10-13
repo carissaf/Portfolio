@@ -3,19 +3,19 @@ import CustomButton from "../DownloadCVButton.astro";
 import ArrowDownIcon from "../icons/ArrowDownIcon.astro";
 ---
 
-<section class="section-scroll flex flex-col w-full items-center justify-center h-screen px-32 relative opacity-0 transform -translate-y-5 transition-all duration-[1500ms] ease-in-out">
+<div class="hero section-scroll flex flex-col w-full items-center justify-center h-screen md:px-32 px-10 relative opacity-0 transform -translate-y-5 transition-all duration-[1500ms] ease-in-out">
     <div class="flex flex-col justify-center w-full">
-        <h1 class="text-7xl font-medium">Carissa Fabellina</h1>
-        <p class="font-light text-xl mt-2 mb-8">Data Enthusiast & UI/UX Designer</p>
+        <h1 class="text-5xl md:text-7xl font-medium">Carissa Fabellina</h1>
+        <p class="font-light md:text-xl mt-2 mb-8">Data Enthusiast & UI/UX Designer</p>
         <CustomButton text="Download CV" className="w-fit"/>
     </div>
     
-    <ArrowDownIcon className="w-10 absolute bottom-32 animate-bounce-slow"/>
-</section>
+    <ArrowDownIcon className="w-7 md:w-10 absolute bottom-32 animate-bounce-slow"/>
+</div>
 
 <script>
     window.addEventListener('DOMContentLoaded', function() {
-        const navbar = document.querySelector('section');
+        const navbar = document.querySelector('.hero');
         navbar.classList.remove('opacity-0', '-translate-y-5');
         navbar.classList.add('opacity-1', 'translate-y-0');
     });

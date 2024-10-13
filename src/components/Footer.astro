@@ -8,39 +8,39 @@ const {className} = Astro.props
 const links = ['/home', '/about', '/projects']
 ---
 
-<footer class={className + ' w-full bg-dark-blue text-yellow px-36 content-center py-32'}>
-    <div class="flex flex-row">
-        <div class="mr-44">
-            <h1 class="text-3xl font-normal text-white opacity-50 mb-10">Say Hello</h1>
-            <a class="text-xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
+<footer class={className + ' w-full bg-dark-blue text-yellow md:px-36 px-10 content-center py-32'}>
+    <div class="flex md:flex-row flex-col">
+        <div class="md:mr-44 mb-10">
+            <h1 class="md:text-3xl font-normal text-white opacity-50 md:mb-10 mb-5">Say Hello</h1>
+            <a class="md:text-xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
         </div>
 
         <div>
-            <h1 class="text-3xl font-normal text-white opacity-50 mb-10">Navigation</h1>
+            <h1 class="md:text-3xl font-normal text-white opacity-50 md:mb-10 mb-5">Navigation</h1>
             <div class="grid gap-5">
                 {links.map(link => {
                     return (
-                        <a class="text-xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
+                        <a class="md:text-xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
                     )
                 })}
             </div>
         </div>
     </div>
 
-    <div class="pt-10 mt-36 border-t-yellow border-t flex flex-row items-center justify-between">
-        <p class="font-light">Designed and built by Carissa</p>
+    <div class="md:pt-10 pt-5 mt-36 border-t-yellow border-t flex md:flex-row flex-col-reverse md:items-center justify-between">
+        <p class="font-light md:text-lg text-xs md:mt-0 mt-10">Designed and built by Carissa</p>
 
-        <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-wrap gap-4">
             <a href="https://www.linkedin.com/in/carissafabellina/" target="_blank">
-                <LinkedInIcon className="w-8"/>
+                <LinkedInIcon className="md:w-8 w-7"/>
             </a>
 
             <a href="https://github.com/carissaf" target="_blank">
-                <GitHubIcon className="w-8"/>
+                <GitHubIcon className="md:w-8 w-7"/>
             </a>
 
             <a href="" target="_blank">
-                <InstagramIcon className="w-8"/>
+                <InstagramIcon className="md:w-8 w-7"/>
             </a>
         </div>
     </div>

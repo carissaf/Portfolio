@@ -6,10 +6,10 @@ import DownloadCVButton from "../DownloadCVButton.astro";
 import CertificateCard from "../CertificateCard.astro";
 ---
 
-<section class="justify-center px-80 flex flex-col pt-48">
+<section class="justify-center md:px-80 px-10 flex flex-col md:pt-48 pt-28">
     <div class="flex flex-col w-full">
-        <Title title="About" className="text-6xl self-center"/>
-        <p class="my-10 text-lg font-light">{aboutData.desc}</p>
+        <Title title="About" className="md:text-6xl text-3xl self-center"/>
+        <p class="md:my-10 my-5 md:text-lg text-sm font-light">{aboutData.desc}</p>
 
         <Skills/>
 
@@ -17,22 +17,22 @@ import CertificateCard from "../CertificateCard.astro";
     </div>
 
     <div class="mt-32">
-        <Title title="Experience" className="text-4xl mb-10"/>
+        <Title title="Experience" className="md:text-4xl text-2xl mb-10"/>
         {aboutData.experience.map((experience, index) => {
-            return <div class="flex flex-row justify-between">
-                <div class="opacity-50 w-1/3 mr-2 text-lg">{experience.date}</div>
+            return <div class="flex md:flex-row flex-col justify-between">
+                <div class="opacity-50 md:w-1/3 mb-2 md:mb-0 mr-2 md:text-lg text-xs">{experience.date}</div>
 
-                <div class={index === aboutData.experience.length - 1 ? "w-full text-lg" : "w-full text-lg mb-8"}>
+                <div class={index === aboutData.experience.length - 1 ? "w-full md:text-lg text-sm" : "w-full md:text-lg text-sm mb-8"}>
                     <h4 class="font-bold mb-2">{experience.position}</h4>
-                    <p class="font-light">{experience.elaboration}</p>
+                    <p class="font-light md:text-base text-sm">{experience.elaboration}</p>
                 </div>
             </div>
         })}
     </div>
 
     <div class="my-32">
-        <Title title="Awards & Certificates" className="text-4xl mb-10"/>
-        <div class="grid grid-cols-2 gap-8">
+        <Title title="Awards & Certificates" className="md:text-4xl text-2xl mb-10"/>
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
             {aboutData.certificates.map((certificate) => {
                 return <CertificateCard url={certificate.imgUrl} title={certificate.title}/>
             })}

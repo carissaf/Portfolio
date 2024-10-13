@@ -11,19 +11,19 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
 
 ---
 
-<a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container overflow-hidden">
-    <div class="arrow absolute w-12 z-[1] rounded-full bg-dark-blue top-7 left-7">
+<a href={`/projects/${title.toLowerCase().replaceAll(' ', '')}`} class="relative container overflow-hidden rounded-xl">
+    <div class="arrow absolute z-10 w-12 rounded-full bg-dark-blue top-7 left-7">
         <ArrowRightIcon className="text-yellow"/>
     </div>
 
-    <div class="img-container rounded-xl h-full">
+    <!--<div class="img-container rounded-xl h-full">-->
         <Image class="img object-cover h-full" alt={title} src={processImage(imgUrl)} />
         <!--bg-[rgba(28,50,91,0.5)]-->
         <div class="detail absolute bg-dark-blue w-11/12 left-1/2 -translate-x-1/2 py-3 px-7 rounded-lg flex flex-row justify-between">
             <h3 class="text-yellow font-light">{title}</h3>
             <h3 class="text-yellow font-light">{category}</h3>
         </div>
-    </div>
+    <!--</div>-->
 </a>
 
 <style>
@@ -32,8 +32,8 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
     }
 
     .img-container {
-        background: rgb(241,241,241);
-        background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(218,218,218,1) 100%);
+        //background: rgb(241,241,241);
+        //background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(218,218,218,1) 100%);
         //background: rgb(241,241,241);
         //background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(127,183,208,1) 100%);
         //background: rgb(255,255,255);

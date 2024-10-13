@@ -4,7 +4,7 @@ import ArrowRightIcon from "./icons/ArrowRightIcon.astro"
 const {link, text, className} = Astro.props
 ---
 <div class={className + " flex flex-row self-end content-center text-light-blue relative w-fit"}>
-    <a class="text-base flex flex-row items-center content-center" href={link}>
+    <a class="md:text-base text-sm flex flex-row items-center content-center" href={link}>
         {text}
         <div class="arrow"><ArrowRightIcon className="w-6 content-center"/></div>
     </a>

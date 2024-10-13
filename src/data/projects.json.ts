@@ -6,7 +6,7 @@ const projectsData: IProject[] = [
         year: "2024",
         techs: ["ReactNative", "Tesseract OCR", "Flask","Firebase", "Tailwind CSS"],
         category: "Mobile Development",
-        imgUrls: ["/src/assets/projects/elderease/cover_elderease.png"],
+        imgUrls: ["/src/assets/projects/elderease/cover_elderease.png", "/src/assets/projects/elderease/elderease_1.png", "/src/assets/projects/elderease/elderease_2.png", "/src/assets/projects/elderease/elderease_3.png"],
         linkGithub: "https://github.com/carissaf/ElderEase",
         linkPPT: "https://www.canva.com/design/DAGH5FvEvrA/ZHbYtpNOCtM6EirKd77wtw/view?utm_content=DAGH5FvEvrA&utm_campaign=designshare&utm_medium=link&utm_source=editor",
         summary: "ElderEase is a mobile-based application aiming to provide ease of communication with elders and assist elders with their daily life. ElderEase is made using ReactNative, Firebase, Tailwind CSS, and integrated with Tesseract OCR using Flask.",

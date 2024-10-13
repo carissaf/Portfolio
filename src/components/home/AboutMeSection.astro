@@ -3,11 +3,11 @@ import CustomLink from '../CustomLink.astro'
 import Title from "../Title.astro";
 import Skills from "../Skills.astro";
 ---
-<section class="section-scroll flex flex-col w-full items-center justify-center h-screen px-80 relative">
-    <Title title="About" className="text-7xl"/>
-    <p class="mt-10 mb-10 text-lg font-light">Hello there! My name is Carissa Fabellina. At the moment I’m a 3rd year undergraduate computer science student in Bina Nusantara University (or  BINUS in short) who’s majoring in Intelligent Systems. I have keen interest in data-related fields & software engineering and I’m really eager to learn more and apply my skill in these fields. </p>
+<div class="section-scroll flex flex-col items-center justify-center md:h-screen md:px-80 px-10 relative">
+    <Title title="About" className="md:text-7xl text-3xl"/>
+    <p class="mt-10 mb-10 md:text-lg text-sm font-light">Hello there! My name is Carissa Fabellina. At the moment I’m a 3rd year undergraduate computer science student in Bina Nusantara University (or  BINUS in short) who’s majoring in Intelligent Systems. I have keen interest in data-related fields & software engineering and I’m really eager to learn more and apply my skill in these fields. </p>
 
     <Skills/>
 
     <CustomLink link="/about" text="Learn More About Me" className="mt-4"/>
-</section>
+</div>

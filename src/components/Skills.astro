@@ -3,14 +3,14 @@ import skillsData from "../data/skills.json";
 import SkillsCard from "./SkillsCard.astro";
 ---
 
-<div class="flex flex-row w-full justify-between">
+<div class="flex md:flex-row flex-wrap w-full justify-between gap-5">
     {skillsData.map((skill, index) => {
         return(
                 <SkillsCard title={skill.title} index={index+1}>
-                    <div class="flex flex-wrap gap-2 mt-4">
+                    <div class="flex flex-wrap gap-2 md:mt-4 mt-1">
                         {skill.techs.map(tech => {
                             return (
-                                    <span class="w-fit font-light text-base bg-dark-blue text-white px-2 py-1 rounded-md">{tech}</span>
+                                    <span class="w-fit font-light md:text-base text-sm bg-dark-blue text-white px-2 py-1 rounded-md">{tech}</span>
                             )
                         })}
                     </div>

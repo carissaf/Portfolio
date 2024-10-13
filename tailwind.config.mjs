@@ -18,6 +18,7 @@ export default {
 			'blue': '#327B94',
 			'light-blue': '#7FB7D0',
 			'white': '#FFFFFF',
+			'black': '#000000',
 		}
 	},
 	plugins: [],
