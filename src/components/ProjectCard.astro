@@ -19,9 +19,9 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
     <!--<div class="img-container rounded-xl h-full">-->
         <Image class="img object-cover h-full" alt={title} src={processImage(imgUrl)} />
         <!--bg-[rgba(28,50,91,0.5)]-->
-        <div class="detail absolute bg-dark-blue w-11/12 left-1/2 -translate-x-1/2 py-3 px-7 rounded-lg flex flex-row justify-between">
-            <h3 class="text-yellow font-light">{title}</h3>
-            <h3 class="text-yellow font-light">{category}</h3>
+        <div class="detail bottom-[5%] md:opacity-0 md:-bottom-[15%] absolute bg-dark-blue w-[95%] md:w-11/12 left-1/2 -translate-x-1/2 py-2 md:py-3 px-5 md:px-7 rounded-lg flex flex-row justify-between">
+            <h3 class="text-yellow font-light md:text-base text-xs">{title}</h3>
+            <h3 class="text-yellow font-light md:text-base text-xs">{category}</h3>
         </div>
     <!--</div>-->
 </a>
@@ -51,11 +51,6 @@ const {title, imgUrl, category} = Astro.props as IProjectCard;
     .container:hover .img{
         transform: scale(1.05);
         //transition: all ease-in-out .3s;
-    }
-
-    .detail{
-        opacity: 0;
-        bottom: -15%;
     }
 
     .container:hover .detail{

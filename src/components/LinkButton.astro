@@ -4,7 +4,7 @@ const {text, link}= Astro.props
 ---
 
 <a class="button-link flex py-2 px-3 border rounded-full w-fit h-fit font-light" target="_blank" href={link}>
-    <p class="w-fit">{text}</p>
+    <p class="w-fit md:text-base text-sm self-center">{text}</p>
     <div class="-rotate-45 arrow rounded-full"><ArrowRightIcon className="w-6"/></div>
 </a>
 

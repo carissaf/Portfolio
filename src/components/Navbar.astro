@@ -5,8 +5,8 @@ const { currPage } = Astro.props;
 const links = ['/home', '/about', '/projects']
 ---
 
-<nav class="flex flex-row justify-between content-center align-center px-7 py-3 md:px-32 md:py-5 fixed w-full font-light z-10 opacity-0 transform -translate-y-5 transition-all duration-700 ease-in-out">
-    <div class="background absolute w-full backdrop-blur-2xl flex h-full top-0 left-0 bg-white" style="z-index: -1"></div>
+<nav class="flex flex-row justify-between bg-gradient-to-b from-white content-center align-center px-7 py-3 md:px-32 md:py-5 fixed w-full font-light z-10 opacity-0 transform -translate-y-5 transition-all duration-700 ease-in-out">
+    <!--<div class="background absolute w-full flex h-full top-0 left-0 bg-white" style="z-index: -1"></div>-->
     <a href="/" class="text-3xl content-center z-10">
         <RabbitIcon className="w-7 md:w-9"/>
     </a>
@@ -67,10 +67,6 @@ const links = ['/home', '/about', '/projects']
         top: 50%;
         width: 100%;
         transform: rotate(45deg);
-    }
-
-    .background{
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     }
 
     .curr-page::before{

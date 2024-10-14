@@ -3,7 +3,7 @@ import Title from "../Title.astro";
 const {title, useTitle} = Astro.props
 ---
 
-<div class="border rounded-xl px-5 py-4 min-w-96">
-    {useTitle ? <Title title={title} className=""/> : <h3 class="text-base opacity-50 mb-1">{title}</h3>}
+<div class="border rounded-xl px-5 py-4 md:min-w-96 w-full">
+    {useTitle ? <Title title={title} className=""/> : <h3 class="md:text-base text-sm opacity-50 mb-1">{title}</h3>}
     <slot/>
 </div>

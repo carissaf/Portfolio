@@ -9,6 +9,7 @@ import Box from "../../components/projects/Box.astro";
 import LinkButton from "../../components/LinkButton.astro";
 import {Image} from "astro:assets"
 import ProgressBar from "../../components/ProgressBar.astro";
+import Title from "../../components/Title.astro";
 
 export function getStaticPaths(){
     let listPaths = []
@@ -28,15 +29,15 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
 <Layout title={projectData.title}>
     <ProgressBar/>
     <Navbar/>
-    <section class="justify-center px-32 flex flex-col pt-48 mb-20">
-        <div class="flex flex-row gap-5 h-fit mb-10">
+    <section class="justify-center md:px-32 px-7 flex flex-col pt-48 mb-20">
+        <div class="flex md:flex-row flex-col gap-5 h-fit mb-10">
             <div class="flex flex-col justify-between">
                 <div>
-                    <h1 class="text-6xl mb-5">{projectData.title}</h1>
-                    <h2 class="font-light text-lg mb-5">{projectData.summary}</h2>
+                    <Title title={projectData.title} className="md:text-6xl text-4xl mb-5"/>
+                    <h2 class="font-light md:text-lg text-sm mb-5">{projectData.summary}</h2>
                 </div>
 
-                <div class="flex flex-row gap-5">
+                <div class="flex flex-row md:gap-5 gap-3">
                     {projectData.linkGithub ? <LinkButton link={projectData.linkGithub} text="Github"/> : null}
                     {projectData.linkKaggle ? <LinkButton link={projectData.linkKaggle} text="Kaggle"/> : null}
                     {projectData.linkColab ? <LinkButton link={projectData.linkColab} text="Colab"/> : null}
@@ -45,19 +46,19 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
                 </div>
             </div>
 
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col md:gap-5 gap-3">
                 <Box title="Category">
-                    <p class="text-dark-blue text-lg">{projectData.category}</p>
+                    <p class="text-dark-blue md:text-lg text-sm">{projectData.category}</p>
                 </Box>
 
                 <Box title="Year">
-                    <p class="text-dark-blue text-lg">{projectData.year}</p>
+                    <p class="text-dark-blue md:text-lg text-sm">{projectData.year}</p>
                 </Box>
 
-                <Box title="Tags">
-                    <div class="flex flex-wrap gap-2">
+                <Box title="Tools">
+                    <div class="flex flex-wrap md:gap-2 gap-1">
                         {projectData.techs.map((tech) => {
-                            return (<p class="bg-dark-blue font-light text-white py-1 px-2 rounded-lg">{tech}</p>)
+                            return (<p class="bg-dark-blue font-light text-white py-1 px-2 rounded-lg md:text-lg text-xs">{tech}</p>)
                         })}
                     </div>
 
@@ -76,26 +77,26 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
         <!--<Title title={projectData.title} className="text-6xl mb-20"/>-->
         <Image src={processImage(projectData.imgUrls[0])} alt={projectData.title} class="rounded-xl object-cover mb-10 w-full h-[50%]"/>
 
-        <div class="flex flex-row gap-5 justify-between mb-10">
+        <div class="flex md:flex-row flex-col gap-5 justify-between mb-10">
             <div class="w-[35%]">
-                <h2 class="text-3xl sticky top-32">Description</h2>
+                <h2 class="md:text-3xl text-lg sticky top-32">Description</h2>
             </div>
 
 
-            <div class="flex flex-col gap-5 w-[65%]">
+            <div class="flex flex-col gap-5 md:w-[65%] w-full">
                 <Box title="Problem" useTitle={true}>
-                    <p class="font-light mt-3">{projectData.description.problem}</p>
+                    <p class="font-light mt-3 text-sm md:text-base">{projectData.description.problem}</p>
                 </Box>
 
                 <Box title="Solution" useTitle={true}>
-                    <p class="font-light mt-3">{projectData.description.solution}</p>
+                    <p class="font-light mt-3 text-sm md:text-base">{projectData.description.solution}</p>
                 </Box>
 
                 {projectData.description.features? (
                         <Box title="Features" useTitle={true}>
                             <ul class="list-disc list-inside mt-3">
                                 {projectData.description.features.map((feature) => {
-                                    return (<li class="font-light">{feature}</li>)
+                                    return (<li class="font-light text-sm md:text-base">{feature}</li>)
                                 })}
                             </ul>
                         </Box>) : null
@@ -104,7 +105,7 @@ const projectData: IProject = projectsData.find((p) => p.title.toLowerCase().rep
         </div>
 
 
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-5">
             {projectData.imgUrls.slice(1).map((imgUrl) => {
                 return (
                     <div class="bg-light-blue rounded-xl" style="background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(218,218,218,1) 100%);">

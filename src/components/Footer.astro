@@ -8,11 +8,11 @@ const {className} = Astro.props
 const links = ['/home', '/about', '/projects']
 ---
 
-<footer class={className + ' w-full bg-dark-blue text-yellow md:px-36 px-10 content-center py-32'}>
+<footer class={className + ' w-full bg-dark-blue text-yellow md:px-36 px-7 content-center md:py-32 py-10'}>
     <div class="flex md:flex-row flex-col">
         <div class="md:mr-44 mb-10">
             <h1 class="md:text-3xl font-normal text-white opacity-50 md:mb-10 mb-5">Say Hello</h1>
-            <a class="md:text-xl font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
+            <a class="md:text-xl text-lg font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
         </div>
 
         <div>
@@ -20,7 +20,7 @@ const links = ['/home', '/about', '/projects']
             <div class="grid gap-5">
                 {links.map(link => {
                     return (
-                        <a class="md:text-xl font-light" href={link === "/home" ? "/" : link}>{link}</a>
+                        <a class="md:text-xl text-lg font-light" href={link === "/home" ? "/" : link}>{link}</a>
                     )
                 })}
             </div>
