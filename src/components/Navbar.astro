@@ -1,5 +1,8 @@
 ---
 import RabbitIcon from "./icons/RabbitIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
 const { currPage } = Astro.props;
 
 const links = ['/home', '/about', '/projects']
@@ -8,7 +11,7 @@ const links = ['/home', '/about', '/projects']
 <nav class="flex flex-row justify-between bg-gradient-to-b from-white content-center align-center px-7 py-3 md:px-[7vw] md:py-5 fixed w-full font-light z-10 opacity-0 transform -translate-y-5 transition-all duration-700 ease-in-out">
     <!--<div class="background absolute w-full flex h-full top-0 left-0 bg-white" style="z-index: -1"></div>-->
     <a href="/" class="text-3xl content-center z-10">
-        <RabbitIcon className="w-7 md:w-9"/>
+        <RabbitIcon className="w-7 md:w-9 rabbit stroke-black"/>
     </a>
 
     <div class="hidden md:flex self-center flex-row text-xl">
@@ -24,15 +27,30 @@ const links = ['/home', '/about', '/projects']
 
     <button class="hamburger flex md:hidden items-center top-0 right-0 relative w-7 h-7 self-center z-10"></button>
 
-    <div class="sidebar absolute top-0 left-0 w-full min-h-screen bg-white hidden md:hidden">
-        <div class="flex flex-col p-4">
+    <div class="sidebar absolute left-0 w-full min-h-screen px-7 py-32 bg-yellow -top-[100vh] md:hidden flex flex-col justify-between">
+        <div class="flex flex-col">
+            <h1 class="text-2xl text-black opacity-50 mb-3">Navigation</h1>
             {
                 links.map(link => (
-                        <a class="my-2 text-xl" href={link === "/home" ? "/" : link}>
+                        <a class="my-2 text-xl w-fit" href={link === "/home" ? "/" : link}>
                             {link}
                         </a>
                 ))
             }
+        </div>
+
+        <div class="flex flex-wrap gap-4 border-t-black border-t pt-10">
+            <a href="https://www.linkedin.com/in/carissafabellina/" target="_blank">
+                <LinkedInIcon className="md:w-8 w-9"/>
+            </a>
+
+            <a href="https://github.com/carissaf" target="_blank">
+                <GitHubIcon className="md:w-8 w-9"/>
+            </a>
+
+            <a href="" target="_blank">
+                <InstagramIcon className="md:w-8 w-9"/>
+            </a>
         </div>
     </div>
 </nav>
@@ -104,6 +122,10 @@ const links = ['/home', '/about', '/projects']
 </style>
 
 <script>
+    import gsap from "gsap";
+
+    let isVisible = false;
+
     window.addEventListener('DOMContentLoaded', function() {
         const navbar = document.querySelector('nav');
         navbar.classList.remove('opacity-0', '-translate-y-5');
@@ -111,10 +133,32 @@ const links = ['/home', '/about', '/projects']
     });
 
     const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.sidebar');
+    const rabbit = document.querySelector('.rabbit');
+    // const menu = document.querySelector('.sidebar');
+    console.log(rabbit);
 
     hamburger.addEventListener('click', function() {
-        menu.classList.toggle('hidden');
+        // menu.classList.toggle('hidden');
+        if(!isVisible){
+            gsap.to('.sidebar', {
+                top: 0,
+                ease: 'power3.out',
+                duration: 0.5
+            })
+
+            // rabbit.classList.add('stroke-white');
+            // rabbit.classList.remove('stroke-black');
+        }else{
+            gsap.to('.sidebar', {
+                top: '-100vh',
+                ease: 'power3.out',
+                duration: 0.5
+            })
+
+            // rabbit.classList.add('stroke-black');
+            // rabbit.classList.remove('stroke-white');
+        }
+        isVisible = !isVisible;
         hamburger.classList.toggle('open');
     });
 </script>
