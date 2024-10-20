@@ -65,13 +65,19 @@ const { title } = Astro.props;
 	const b3 = document.querySelector('.banner-3');
 	const b4 = document.querySelector('.banner-4');
 
+	const width = window.innerWidth;
 	const animateIn = () => {
 		if(b1 && b2 && b3 && b4){
 			const tl = gsap.timeline();
-
-			tl.set([b1, b2, b3, b4], {
-				yPercent:0,
-			}).to([b1, b2, b3, b4], {yPercent:100, stagger:0.1});
+			if(width >= 1024) {
+				tl.set([b1, b2, b3, b4], {
+					yPercent: 0,
+				}).to([b1, b2, b3, b4], {yPercent: 100, stagger: 0.1});
+			}else{
+				tl.set([b1, b2, b3, b4], {
+					xPercent: 0,
+				}).to([b1, b2, b3, b4], {xPercent: 100, stagger: 0.1});
+			}
 		}
 	}
 
@@ -80,8 +86,14 @@ const { title } = Astro.props;
 			const tl = gsap.timeline({
 				onComplete: resolve, // Resolve the promise when animation completes
 			});
-			tl.set([b1, b2, b3, b4], { yPercent: 100 })
-				.to([b1, b2, b3, b4], { yPercent: 0, stagger: 0.1 });
+
+			if(width >= 1024) {
+				tl.set([b1, b2, b3, b4], {yPercent: 100})
+					.to([b1, b2, b3, b4], {yPercent: 0, stagger: 0.1});
+			}else{
+				tl.set([b1, b2, b3, b4], { xPercent: 100 })
+					.to([b1, b2, b3, b4], { xPercent: 0, stagger: 0.1 });
+			}
 		});
 	}
 
