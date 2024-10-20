@@ -21,11 +21,11 @@ const { title } = Astro.props;
 		<!--<ViewTransitions/>-->
 	</head>
 	<body>
-		<div class="transition-overlay">
-			<div class="banner-1 lg:h-screen w-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-0 h-1/4 left-0 top-0"></div>
-			<div class="banner-2 lg:h-screen w-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-1/4 h-1/4 left-0 top-1/4"></div>
-			<div class="banner-3 lg:h-screen w-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-2/4 h-1/4 left-0 top-2/4"></div>
-			<div class="banner-4 lg:h-screen w-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-3/4 h-1/4 left-0 top-3/4"></div>
+		<div class="transition-overlay hidden lg:block">
+			<div class="banner-1 lg:h-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-0 "></div>
+			<div class="banner-2 lg:h-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-1/4 "></div>
+			<div class="banner-3 lg:h-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-2/4 "></div>
+			<div class="banner-4 lg:h-screen z-50 bg-light-blue fixed lg:top-0 lg:w-1/4 lg:left-3/4 "></div>
 		</div>
 		<slot />
 	</body>
@@ -66,47 +66,52 @@ const { title } = Astro.props;
 	const b4 = document.querySelector('.banner-4');
 
 	const width = window.innerWidth;
-	const animateIn = () => {
-		if(b1 && b2 && b3 && b4){
-			const tl = gsap.timeline();
-			if(width >= 1024) {
-				tl.set([b1, b2, b3, b4], {
-					yPercent: 0,
-				}).to([b1, b2, b3, b4], {yPercent: 100, stagger: 0.1});
-			}else{
-				tl.set([b1, b2, b3, b4], {
-					xPercent: 0,
-				}).to([b1, b2, b3, b4], {xPercent: 100, stagger: 0.1});
+
+	if(width >= 1024) {
+		const animateIn = () => {
+			if (b1 && b2 && b3 && b4) {
+				const tl = gsap.timeline();
+				if (width >= 1024) {
+					tl.set([b1, b2, b3, b4], {
+						yPercent: 0,
+					}).to([b1, b2, b3, b4], {yPercent: 100, stagger: 0.1});
+				}
+				// else{
+				// 	tl.set([b1, b2, b3, b4], {
+				// 		xPercent: 0,
+				// 	}).to([b1, b2, b3, b4], {xPercent: 100, stagger: 0.1});
+				// }
 			}
 		}
-	}
 
-	const animateOut = () => {
-		return new Promise((resolve) => {
-			const tl = gsap.timeline({
-				onComplete: resolve, // Resolve the promise when animation completes
+		const animateOut = () => {
+			return new Promise((resolve) => {
+				const tl = gsap.timeline({
+					onComplete: resolve, // Resolve the promise when animation completes
+				});
+
+				if (width >= 1024) {
+					tl.set([b1, b2, b3, b4], {yPercent: 100})
+						.to([b1, b2, b3, b4], {yPercent: 0, stagger: 0.1});
+				}
+				// else{
+				// 	tl.set([b1, b2, b3, b4], { xPercent: 100 })
+				// 		.to([b1, b2, b3, b4], { xPercent: 0, stagger: 0.1 });
+				// }
 			});
+		}
 
-			if(width >= 1024) {
-				tl.set([b1, b2, b3, b4], {yPercent: 100})
-					.to([b1, b2, b3, b4], {yPercent: 0, stagger: 0.1});
-			}else{
-				tl.set([b1, b2, b3, b4], { xPercent: 100 })
-					.to([b1, b2, b3, b4], { xPercent: 0, stagger: 0.1 });
-			}
-		});
-	}
+		document.addEventListener("DOMContentLoaded", animateIn);
 
-	document.addEventListener("DOMContentLoaded", animateIn);
+		document.querySelectorAll('a').forEach((link) => {
+			link.addEventListener("click", (event) => {
+				event.preventDefault(); // Prevent default navigation
+				const href = link.getAttribute("href");
 
-	document.querySelectorAll('a').forEach((link) => {
-		link.addEventListener("click", (event) => {
-			event.preventDefault(); // Prevent default navigation
-			const href = link.getAttribute("href");
-
-			animateOut().then(() => {
-				window.location.href = href;
+				animateOut().then(() => {
+					window.location.href = href;
+				});
 			});
-		});
-	})
+		})
+	}
 </script>
