@@ -3,7 +3,7 @@ import skillsData from "../data/skills.json";
 import SkillsCard from "./SkillsCard.astro";
 ---
 
-<div class="grid md:grid-cols-3 grid-cols-1 w-full justify-between gap-5">
+<div class="grid lg:grid-cols-3 grid-cols-1 w-full justify-between gap-5">
     {skillsData.map((skill, index) => {
         return(
                 <SkillsCard title={skill.title} index={index+1}>

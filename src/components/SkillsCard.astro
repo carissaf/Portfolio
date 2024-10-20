@@ -1,11 +1,11 @@
 ---
 const {title, index} = Astro.props;
 ---
-<div class="border rounded-xl md:p-6 p-5">
+<div class="border rounded-xl lg:p-6 p-5">
     <!--<h3 class="index font-light text-xl rounded-full after:aspect-square">{index}</h3>-->
-    <div class="bg-light-blue rounded-full md:w-12 md:h-12 w-8 h-8 flex justify-center items-center md:mb-10 mb-5">
-        <h3 class="font-light md:text-lg text-sm text-white">{index.toString().padStart(2, '0')}</h3>
+    <div class="bg-light-blue rounded-full lg:w-12 lg:h-12 w-8 h-8 flex justify-center items-center lg:mb-10 mb-5">
+        <h3 class="font-light lg:text-lg md:text-base text-sm text-white">{index.toString().padStart(2, '0')}</h3>
     </div>
-    <h3 class="font-light md:text-2xl text-lg">{title}</h3>
+    <h3 class="font-light lg:text-2xl md:text-xl text-lg">{title}</h3>
     <slot/>
 </div>

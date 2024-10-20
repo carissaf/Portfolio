@@ -32,14 +32,14 @@ const projectsData: IProject[] = [
         }
     },
     {
-        title: "News Category Classification",
+        title: "News Classification",
         year: "2024",
         techs: ["NLP", "Python", "Machine Learning", "Naive Bayes", "Neural Network", "BERT"],
         category: "NLP",
         imgUrls: ["/src/assets/projects/newscategory/cover_newscategory.png"],
         linkColab: "https://colab.research.google.com/drive/190yFNj0F8q_16hPatDk6rczj8Q0RVPXP",
         linkPPT: "https://www.canva.com/design/DAGA38gZGUI/IbUwjhLNYHBT4Mxcj7uZjw/view?utm_content=DAGA38gZGUI&utm_campaign=designshare&utm_medium=link&utm_source=editor",
-        summary: "The News Category Classification project leverages Natural Language Processing techniques to enhance the efficiency of organizing news content by categories. Using Naive Bayes, Neural Networks, and fine-tuning BERT models, this project aims to streamline and accelerate the process of sorting news articles based on their respective categories in the digital era.",
+        summary: "The News Classification project leverages Natural Language Processing techniques to enhance the efficiency of organizing news content by categories. Using Naive Bayes, Neural Networks, and fine-tuning BERT models, this project aims to streamline and accelerate the process of sorting news articles based on their respective categories in the digital era.",
         description: {
             problem: "In this digital era, accessing information has become easier through technology. However, the vast number of news articles being published makes it challenging to efficiently organize and sort this content based on its categories. This overload of information often leads to difficulties in finding relevant or specific topics, causing inefficiencies in managing and navigating through news content.",
             solution: "We implemented a News Category Classification system to improve efficiency and streamline the process of organizing news content by its respective categories. This solution uses three methods: Multinomial Naive Bayes, Neural Networks, and BERT (Bidirectional Encoder Representations from Transformers). Each approach enhances the accuracy and speed of classifying news articles, ensuring that content is better organized and easier to navigate, allowing for a more efficient information retrieval process."
