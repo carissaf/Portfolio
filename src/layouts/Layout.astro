@@ -57,61 +57,61 @@ const { title } = Astro.props;
 	}
 </style>
 
-<script>
-	import gsap from 'gsap'
+<!--<script>-->
+<!--	import gsap from 'gsap'-->
 
-	const b1 = document.querySelector('.banner-1');
-	const b2 = document.querySelector('.banner-2');
-	const b3 = document.querySelector('.banner-3');
-	const b4 = document.querySelector('.banner-4');
+<!--	const b1 = document.querySelector('.banner-1');-->
+<!--	const b2 = document.querySelector('.banner-2');-->
+<!--	const b3 = document.querySelector('.banner-3');-->
+<!--	const b4 = document.querySelector('.banner-4');-->
 
-	const width = window.innerWidth;
+<!--	const width = window.innerWidth;-->
 
-	if(width >= 1024) {
-		const animateIn = () => {
-			if (b1 && b2 && b3 && b4) {
-				const tl = gsap.timeline();
-				if (width >= 1024) {
-					tl.set([b1, b2, b3, b4], {
-						yPercent: 0,
-					}).to([b1, b2, b3, b4], {yPercent: 100, stagger: 0.1});
-				}
-				// else{
-				// 	tl.set([b1, b2, b3, b4], {
-				// 		xPercent: 0,
-				// 	}).to([b1, b2, b3, b4], {xPercent: 100, stagger: 0.1});
-				// }
-			}
-		}
+<!--	if(width >= 1024) {-->
+<!--		const animateIn = () => {-->
+<!--			if (b1 && b2 && b3 && b4) {-->
+<!--				const tl = gsap.timeline();-->
+<!--				if (width >= 1024) {-->
+<!--					tl.set([b1, b2, b3, b4], {-->
+<!--						yPercent: 0,-->
+<!--					}).to([b1, b2, b3, b4], {yPercent: 100, stagger: 0.1});-->
+<!--				}-->
+<!--				// else{-->
+<!--				// 	tl.set([b1, b2, b3, b4], {-->
+<!--				// 		xPercent: 0,-->
+<!--				// 	}).to([b1, b2, b3, b4], {xPercent: 100, stagger: 0.1});-->
+<!--				// }-->
+<!--			}-->
+<!--		}-->
 
-		const animateOut = () => {
-			return new Promise((resolve) => {
-				const tl = gsap.timeline({
-					onComplete: resolve, // Resolve the promise when animation completes
-				});
+<!--		const animateOut = () => {-->
+<!--			return new Promise((resolve) => {-->
+<!--				const tl = gsap.timeline({-->
+<!--					onComplete: resolve, // Resolve the promise when animation completes-->
+<!--				});-->
 
-				if (width >= 1024) {
-					tl.set([b1, b2, b3, b4], {yPercent: 100})
-						.to([b1, b2, b3, b4], {yPercent: 0, stagger: 0.1});
-				}
-				// else{
-				// 	tl.set([b1, b2, b3, b4], { xPercent: 100 })
-				// 		.to([b1, b2, b3, b4], { xPercent: 0, stagger: 0.1 });
-				// }
-			});
-		}
+<!--				if (width >= 1024) {-->
+<!--					tl.set([b1, b2, b3, b4], {yPercent: 100})-->
+<!--						.to([b1, b2, b3, b4], {yPercent: 0, stagger: 0.1});-->
+<!--				}-->
+<!--				// else{-->
+<!--				// 	tl.set([b1, b2, b3, b4], { xPercent: 100 })-->
+<!--				// 		.to([b1, b2, b3, b4], { xPercent: 0, stagger: 0.1 });-->
+<!--				// }-->
+<!--			});-->
+<!--		}-->
 
-		document.addEventListener("DOMContentLoaded", animateIn);
+<!--		document.addEventListener("DOMContentLoaded", animateIn);-->
 
-		document.querySelectorAll('a').forEach((link) => {
-			link.addEventListener("click", (event) => {
-				event.preventDefault(); // Prevent default navigation
-				const href = link.getAttribute("href");
+<!--		document.querySelectorAll('a').forEach((link) => {-->
+<!--			link.addEventListener("click", (event) => {-->
+<!--				event.preventDefault(); // Prevent default navigation-->
+<!--				const href = link.getAttribute("href");-->
 
-				animateOut().then(() => {
-					window.location.href = href;
-				});
-			});
-		})
-	}
-</script>
+<!--				animateOut().then(() => {-->
+<!--					window.location.href = href;-->
+<!--				});-->
+<!--			});-->
+<!--		})-->
+<!--	}-->
+<!--</script>-->
